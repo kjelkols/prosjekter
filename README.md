@@ -1,6 +1,6 @@
 # Prosjekter
 
-Maker- og IoT-prosjekter basert på mikrokontrollere og elektronikk.
+Maker- og IoT-prosjekter basert på konstruksjoner, mikrokontrollere og elektronikk.
 
 ## Prosjekter
 

@@ -3,7 +3,7 @@
 ## Planlegging
 
 - [ ] Definer krav og mål
-- [ ] Velg sensorer og aktuatorer
+- [ ] Velg sensorer og aktuatorer (aktuatorer + styrekort bestilt ✓)
 - [ ] Lag hardware-skjema
 - [ ] Bestem kommunikasjonsprotokoll (MQTT/WiFi)
 
