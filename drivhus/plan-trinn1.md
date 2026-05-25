@@ -36,12 +36,50 @@ HA ←→ [Mediakonverter] ~~fiber 10m~~ [Mediakonverter] ←→ RPi ←→ WiFi
 
 RPi kobles til mediakonverter via Ethernet og kjører `hostapd` som lokalt WiFi-nettverk.
 
+#### Layout — garasje og drivhus
+
+Garasjen ligger 5m fra drivhuset. Garasjen blir naturlig knutepunkt med en switch som betjener begge bygg.
+
+**Anbefalt: SFP-switch i garasjen** (sparer to mediakonvertere):
+
+```
+[Hus/switch]
+      │ fiber, armert, ~12m
+[Garasje: switch med SFP-port]
+      │ fiber, armert, ~7m
+[Drivhus: mediakonverter → RPi → WiFi → T-Relay]
+```
+
+| Komponent | Plassering | Antall |
+|---|---|---|
+| Mediakonverter, gigabit LC multimode | Hus | 1 |
+| Switch med SFP-spor (f.eks. TP-Link TL-SG105S) | Garasje | 1 |
+| SFP-modul, 1000Base-SX, LC multimode | Garasje (i switch) | 1 |
+| Mediakonverter, gigabit LC multimode | Drivhus | 1 |
+| Fiber, armert direct burial, LC-LC | Hus → garasje | ~12m |
+| Fiber, armert direct burial, LC-LC | Garasje → drivhus | ~7m |
+| RPi (ledig) | Drivhus | 1 |
+
+**Alternativ: to par mediakonvertere** (enklere utstyr, men mer kabling i garasjen):
+
+```
+[Hus/switch]
+      │ fiber, ~12m
+[Garasje: mediakonverter → 5-port switch → mediakonverter]
+      │ fiber, ~7m
+[Drivhus: mediakonverter → RPi]
+```
+
+Krever 4 mediakonvertere + 1 switch i stedet for 2 konvertere + 1 SFP-switch. Omtrent samme pris.
+
 #### Utstyr som trengs
 
 | Komponent | Antall | Spesifikasjon |
 |---|---|---|
-| Fiber, armert direct burial | 1 stk | LC-LC, OM3 multimode, 15m (kjøp litt ekstra) |
+| Fiber, armert direct burial, LC-LC | 2 stk | OM3 multimode — ~12m og ~7m |
 | Mediakonverter | 2 stk | Gigabit, 1000Base-SX, LC multimode, 850nm |
+| Switch med SFP-spor | 1 stk | F.eks. TP-Link TL-SG105S (~300 kr) |
+| SFP-modul | 1 stk | 1000Base-SX, LC multimode, 850nm |
 | RPi (ledig) | 1 stk | Ethernet + WiFi |
 
 #### Innkjøpsalternativer
@@ -138,7 +176,7 @@ Grensebryterne i aktuatorene stopper ved endepunkt — HA trenger ikke vite om d
 ### Forberedelse
 - [ ] Mål WiFi-signal ved drivhuset (WiFi Analyzer-app, grense -70 dBm)
 - [ ] Avgjør tilkoblingsmetode (A: WiFi direkte / B: fiber + RPi)
-- [ ] Hvis B: bestill fiber og mediakonvertere (FS.com eller AliExpress)
+- [ ] Hvis B: bestill 2 × fiberkabel (12m + 7m), 2 × mediakonverter, 1 × SFP-switch med modul
 - [ ] Finn GPIO-numre for reléene fra T-Relay-skjema
 
 ### Hardware
