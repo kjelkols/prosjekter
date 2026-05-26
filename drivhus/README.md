@@ -2,7 +2,11 @@
 
 ## Status
 
-Planlegging
+Planlegging — hardware bestilt, venter levering
+
+## Plan
+
+- [Trinn 1 — Manuell lukestyring fra Home Assistant](plan-trinn1.md)
 
 ## Mål
 
